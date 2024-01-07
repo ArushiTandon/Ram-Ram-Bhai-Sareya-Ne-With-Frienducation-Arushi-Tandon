@@ -1,0 +1,29 @@
+Problem 1 : Missinng Numbers
+
+class Solution {
+    public int missingNumber(int[] nums) {
+
+     int sum = (nums.length + 1) * (nums.length) / 2;
+        for (int i = 0; i < nums.length; i++)
+            sum -= nums[i];
+        return sum;
+    }
+}
+
+---------------------------------------------------------------
+
+Problem 2 : Buy & Sell Stock
+
+class Solution {
+    public int maxProfit(int[] prices) {
+        int p = 0; // it'll store the max profit
+        int m = prices[0]; //min no. for  purchase
+
+        for(int i = 0 ; i < prices.length ; i++) {
+            m = Math.min(m , prices[i]) ;
+            int profit = prices[i] - m ; 
+            p = Math.max(p , profit);
+        }
+        return p ;
+    }
+}
