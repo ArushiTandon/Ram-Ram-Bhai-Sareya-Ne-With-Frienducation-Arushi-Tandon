@@ -1,0 +1,42 @@
+Day 4 Problems
+Problem 1: 53. Maximum Subarray
+
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int n = nums.length;
+        int max = Integer.MIN_VALUE, sum = 0;
+        
+        for(int i=0;i<n;i++){
+            sum += nums[i];
+            max = Math.max(sum,max);
+            
+            if(sum<0) sum = 0;
+        }
+        
+        return max;
+    }
+}
+
+------------------------------------------------------------------------
+
+Problem 2 : 1432. Maximum Points You Can Obtain from Cards
+
+class Solution {
+    public int maxScore(int[] cardPoints, int k) {
+        int sum = 0, n = 0 , maxscore = 0;
+        int j=cardPoints.length-1;
+
+        for(int i=0;i<k;i++){
+            sum += cardPoints[i];;
+        }
+        maxscore = sum;
+        for(int i=0;i<k;i++){
+           
+            n += cardPoints[cardPoints.length-1-i];
+            sum -= cardPoints[k-1-i];
+            maxscore = Math.max(sum+n, maxscore);
+        }
+        
+        return maxscore;
+    }
+}
